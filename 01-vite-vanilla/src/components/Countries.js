@@ -5,7 +5,7 @@ const p = document.createElement('p')
 
 const Countries = () => {
   getCountryName().then(data => {
-    p.textContent = JSON.stringify(data[0].name.official)
+    p.textContent = data[0].name.official
     app.appendChild(p)
   })
   getCountryName()
