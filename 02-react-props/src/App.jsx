@@ -1,45 +1,20 @@
 import './App.css'
 import ilustracion from './assets/img/ilustracion.svg'
-import ilustracion1 from './assets/img/ilustracion1.svg'
 import uno from './assets/img/uno.jpg'
 import dos from './assets/img/dos.jpg'
 import tres from './assets/img/tres.jpg'
 import cuatro from './assets/img/cuatro.jpg'
 import cinco from './assets/img/cinco.jpg'
 import seis from './assets/img/seis.jpg'
+import HeaderHero from './components/HeaderHero'
+import LearnMore from './components/LearnMore'
 
 function App () {
   return (
     <div className='App'>
-      <header className='hero'>
-        <div className='textos-hero'>
-          <h1>Bienvenido a Website</h1>
-          <p>Creamos el mejor sitio web para ti</p>
-          <a href='#contacto'>Contactame</a>
-        </div>
-        <div className='svg-hero' style={{ height: '150px', overflow: 'hidden' }}>
-          <svg
-            viewBox='0 0 500 150' preserveAspectRatio='none'
-            style={{ height: '100%', width: '100%' }}
-          >
-            <path
-              d='M0.00,49.98 C149.99,150.00 349.20,-49.98 500.00,49.98 L500.00,150.00 L0.00,150.00 Z'
-              style={{ stroke: 'none', fill: '#fff' }}
-            />
-          </svg>
-        </div>
-      </header>
+      <HeaderHero title='Hola desde JSX!' desc='Acabamos de aprender como pasar HTML a JSX y hacerlo dinámico con PROPS' button='Contactame!' />
 
-      <section className='wave-contenedor website'>
-        <img src={ilustracion1} alt='' />
-        <div className='contenedor-textos-main'>
-          <h2 className='titulo left'>Title of section</h2>
-          <p className='parrafo'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt enim reiciendis
-            molestias nam tempore. Ullam hic accusantium eligendi ipsam corrupti!
-          </p>
-          <a href='' className='cta'>Learn more</a>
-        </div>
-      </section>
+      <LearnMore title='React es Cool' desc='Puedo hacer componentes muy fácilmente' cta='¡Aprende ahora!' />
 
       <section className='info'>
         <div className='contenedor'>
