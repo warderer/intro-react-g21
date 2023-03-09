@@ -1,4 +1,4 @@
-const Saludar = ({nombre, apellido}) => {
+const Saludar = ({ nombre, apellido }) => {
   return (
     <div>Hola {nombre} {apellido}</div>
   )
