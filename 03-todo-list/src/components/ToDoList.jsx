@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import ToDoItem from './ToDoItem'
 
 const ToDoList = () => {
   // 1: Los estados de React sirven para guardar información que se va a utilizar en el componente. Esta información tiene la particularidad de que se actualiza la vista automaticamente cuando cambia el estado.
@@ -7,8 +8,20 @@ const ToDoList = () => {
   // La función setInputValue permite modificar el valor del estado inputValue.
   const [inputValue, setInputValue] = useState('')
 
+  // 4: Añadimos un nuevo estado, para almacenar la lista de tareas en un arreglo.
+  const [todos, setTodos] = useState([])
+
+  // 5. Modificamos la función handleAdd para que el ToDo Item se agregue al estado en el arreglo de ToDo
   const handleAdd = () => {
-    console.log('Agregue', inputValue)
+    if (inputValue.trim()) { // trim limpia espacios en blanco
+      setTodos([...todos, inputValue]) // añado el nuevo ToDo al arreglo
+      setInputValue('') // vacio el input para volver a escribir
+    }
+  }
+
+  // 6. Función que se ejecuta cada vez que se hace clic en el botón de borrar un ToDo
+  const deleteTodo = (itemIndex) => {
+    setTodos(todos.filter((_, i) => i !== itemIndex))
   }
 
   return (
@@ -19,15 +32,14 @@ const ToDoList = () => {
       {/* 3a: Otra forma de trabajar con eventos, es que podemos declarar la función más arriba y solo mandarla a llamar en el evento */}
       <button className='add-button' onClick={handleAdd}>Agregar</button>
       <ul>
-        <li>Item 1
-          <button>Eliminar</button>
-        </li>
-        <li>Item 2
-          <button>Eliminar</button>
-        </li>
-        <li>Item 3
-          <button>Eliminar</button>
-        </li>
+        {/* 7. Iteramos el arreglo de ToDos y por cada elemento, renderizamos un componente ToDoItem */}
+        {todos.map((todo, index) => (
+          <ToDoItem
+            key={index}
+            todo={todo}
+            handleDelete={() => deleteTodo(index)}
+          />
+        ))}
       </ul>
     </div>
   )
